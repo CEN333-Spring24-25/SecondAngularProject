@@ -4,41 +4,51 @@
     <fieldset>
         <div class="pure-control-group">
             <label for="name"> Name </label>
-            <input type="text" id="name" [(ngModel)]="name">
+            <input type="text" id="name" [(ngModel)]="name" name="name">
             
         </div>
 
         <div class="pure-control-group">
             <label for="weight"> Weight </label>
-            <input type="text" id="weight" [(ngModel)]="weight">
+            <input type="text" id="weight" [(ngModel)]="weight" name="weight">
         </div>
 
         <div class="pure-control-group">
             <label for="height"> Height </label>
-            <input type="text" id="height" [(ngModel)]="height">
+            <input type="text" id="height" [(ngModel)]="height" name="height">
             
         </div>
 
         <div class="pure-control-group">
             <label for="bloodpressure"> Blood Pressure </label>
-            <input type="text" id="bloodpressure" [(ngModel)]="bloodpressure">
+            <input type="text" id="bloodpressure" [(ngModel)]="bloodpressure" name="bloodpressure">
             
         </div>
 
         <div class="pure-control-group">
             <label for="oxygenlevel"> Oxygen Level </label>
-            <input type="text" id="oxygenlevel" [(ngModel)]="oxygenlevel">
+            <input type="text" id="oxygenlevel" [(ngModel)]="oxygenlevel" name="oxygenlevel">
             
         </div>
 
         <div class="pure-control-group">
             <label for="temp"> Temp </label>
-            <input type="text" id="temp" [(ngModel)]="temp">
+            <input type="text" id="temp" [(ngModel)]="temp" name="temp">
             
         </div>
         <div class="pure-controls">
             <button class="pure-button button-ghazal" (click)="registerVitals()"> Register Vitals</button>  
         </div>
-    </fieldset>      
+    </fieldset> 
+    
+    <ul>
+        <li *ngFor="let patient of listOfPatients"> 
+            Patient: {{patient.name}}. 
+            Height/Weight is {{patient.height}}/{{patient.weight}}. 
+            Blood pressure {{patient.bloodpressure}}, 
+            temp {{patient.temp}}, 
+            Oxygen Level: {{patient.oxygenlevel}}.  </li>
+    </ul>
+    
 </form>
 

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Patient } from './data/patient';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +17,7 @@ export class AppComponent {
   bloodpressure: string; 
   temp: number; 
   oxygenlevel: number;
+  listOfPatients: Patient[];
 
   constructor(){
     this.name = "";
@@ -24,9 +26,11 @@ export class AppComponent {
     this.bloodpressure = "";
     this.temp = 0; 
     this.oxygenlevel = 0; 
+    this.listOfPatients = [];
   }
 
   registerVitals(){
-
+    let myPatient = new Patient(this.name, this.height, this.weight, this.bloodpressure, this.temp, this.oxygenlevel);
+    this.listOfPatients.push(myPatient);
   }
 }
