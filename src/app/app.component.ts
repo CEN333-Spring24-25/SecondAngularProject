@@ -12,25 +12,28 @@ import { Patient } from './data/patient';
 })
 export class AppComponent {
   name: string; 
-  height: number;
-  weight: number;
+  height: string;
+  weight: string;
   bloodpressure: string; 
-  temp: number; 
-  oxygenlevel: number;
+  temp: string; 
+  oxygenlevel: string;
   listOfPatients: Patient[];
 
   constructor(){
     this.name = "";
-    this.height = 0; 
-    this.weight = 0; 
+    this.height = ""; 
+    this.weight = ""; 
     this.bloodpressure = "";
-    this.temp = 0; 
-    this.oxygenlevel = 0; 
+    this.temp = ""; 
+    this.oxygenlevel = ""; 
     this.listOfPatients = [];
   }
 
   registerVitals(){
-    let myPatient = new Patient(this.name, this.height, this.weight, this.bloodpressure, this.temp, this.oxygenlevel);
+    let myPatient = new Patient(this.name, +this.height, +this.weight, this.bloodpressure, +this.temp, +this.oxygenlevel);
     this.listOfPatients.push(myPatient);
+  }
+  deletePatient(){
+    
   }
 }

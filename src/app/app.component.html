@@ -4,51 +4,70 @@
     <fieldset>
         <div class="pure-control-group">
             <label for="name"> Name </label>
-            <input type="text" id="name" [(ngModel)]="name" name="name">
+            <input required type="text" id="name" [(ngModel)]="name" name="name">
             
         </div>
 
         <div class="pure-control-group">
             <label for="weight"> Weight </label>
-            <input type="text" id="weight" [(ngModel)]="weight" name="weight">
+            <input required type="text" id="weight" [(ngModel)]="weight" name="weight">
         </div>
 
         <div class="pure-control-group">
             <label for="height"> Height </label>
-            <input type="text" id="height" [(ngModel)]="height" name="height">
+            <input required type="text" id="height" [(ngModel)]="height" name="height">
             
         </div>
 
         <div class="pure-control-group">
             <label for="bloodpressure"> Blood Pressure </label>
-            <input type="text" id="bloodpressure" [(ngModel)]="bloodpressure" name="bloodpressure">
+            <input required type="text" id="bloodpressure" [(ngModel)]="bloodpressure" name="bloodpressure">
             
         </div>
 
         <div class="pure-control-group">
             <label for="oxygenlevel"> Oxygen Level </label>
-            <input type="text" id="oxygenlevel" [(ngModel)]="oxygenlevel" name="oxygenlevel">
+            <input required type="text" id="oxygenlevel" [(ngModel)]="oxygenlevel" name="oxygenlevel">
             
         </div>
 
         <div class="pure-control-group">
             <label for="temp"> Temp </label>
-            <input type="text" id="temp" [(ngModel)]="temp" name="temp">
+            <input required type="text" id="temp" [(ngModel)]="temp" name="temp">
             
         </div>
         <div class="pure-controls">
-            <button class="pure-button button-ghazal" (click)="registerVitals()"> Register Vitals</button>  
+            <button type="submit" class="pure-button button-ghazal" (click)="registerVitals()"> Register Vitals</button>  
         </div>
     </fieldset> 
     
-    <ul>
-        <li *ngFor="let patient of listOfPatients"> 
-            Patient: {{patient.name}}. 
-            Height/Weight is {{patient.height}}/{{patient.weight}}. 
-            Blood pressure {{patient.bloodpressure}}, 
-            temp {{patient.temp}}, 
-            Oxygen Level: {{patient.oxygenlevel}}.  </li>
-    </ul>
-    
+    <table class="pure-table pure-table-bordered">
+        <thead>
+            <tr>
+                <th>Patient</th>
+                <th>Height</th>
+                <th>Weight</th>
+                <th>Blood Pressure</th>
+                <th>Temperature</th>
+                <th>Oxygen</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let patient of listOfPatients">
+                <td>{{patient.name}}</td>
+                <td>{{patient.height}}</td>
+                <td>{{patient.weight}}</td>
+                <td>{{patient.bloodpressure}}</td>
+                <td>{{patient.temp}}</td>
+                <td>{{patient.oxygenlevel}}</td>
+                <td>
+                    <button class="pure-button button-error" (click)="deletePatient()">
+                        X
+                    </button>
+                    </td>
+            </tr>
+        </tbody>
+    </table>
 </form>
 
