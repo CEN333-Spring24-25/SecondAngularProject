@@ -3,6 +3,12 @@
 <form class="pure-form pure-form-aligned">
     <fieldset>
         <div class="pure-control-group">
+            <label for="phone"> Phone </label>
+            <input required type="text" id="phone" [(ngModel)]="phone" name="phone">
+            
+        </div>
+
+        <div class="pure-control-group">
             <label for="name"> Name </label>
             <input required type="text" id="name" [(ngModel)]="name" name="name">
             
@@ -62,7 +68,7 @@
                 <td>{{patient.temp}}</td>
                 <td>{{patient.oxygenlevel}}</td>
                 <td>
-                    <button class="pure-button button-error" (click)="deletePatient()">
+                    <button class="pure-button button-error" (click)="deletePatient(patient.phone)">
                         X
                     </button>
                     </td>
