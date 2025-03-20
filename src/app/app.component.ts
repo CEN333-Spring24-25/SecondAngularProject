@@ -11,7 +11,7 @@ import { Patient } from './data/patient';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  phone: string;
+  id: string;
   name: string; 
   height: string;
   weight: string;
@@ -21,7 +21,7 @@ export class AppComponent {
   listOfPatients: Patient[];
 
   constructor(){
-    this.phone = ""; 
+    this.id = ""; 
     this.name = "";
     this.height = ""; 
     this.weight = ""; 
@@ -32,7 +32,7 @@ export class AppComponent {
   }
 
   registerVitals(){
-    let myPatient = new Patient(this.phone, this.name, +this.height, +this.weight, this.bloodpressure, +this.temp, +this.oxygenlevel);
+    let myPatient = new Patient(this.id, this.name, +this.height, +this.weight, this.bloodpressure, +this.temp, +this.oxygenlevel);
     this.listOfPatients.push(myPatient);
   }
   deletePatient(phone: string){
