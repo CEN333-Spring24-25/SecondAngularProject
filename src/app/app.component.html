@@ -4,7 +4,7 @@
     <fieldset>
         <div class="pure-control-group">
             <label for="phone"> Phone </label>
-            <input required pattern="^05\d{8}" type="text" id="phone" [(ngModel)]="id" name="id" #idcontrol="ngModel" placeholder="0501234567">
+            <input required pattern="^05\d{8}" type="text" id="phone" [(ngModel)]="patient.id" name="id" #idcontrol="ngModel" placeholder="0501234567">
             <span class="error-message" *ngIf="idcontrol.invalid && idcontrol.touched"> 
                 <small *ngIf="idcontrol.errors?.['required']"> Required </small>
                 <small *ngIf="idcontrol.errors?.['pattern']"> Invalid phone number </small>
@@ -14,7 +14,7 @@
 
         <div class="pure-control-group">
             <label for="name"> Name </label>
-            <input required pattern="^[A-Z][a-z]+ [A-Z][a-z]+$" type="text" id="name" [(ngModel)]="name" name="name" #namecontrol="ngModel" placeholder="John Smith">
+            <input required pattern="^[A-Z][a-z]+ [A-Z][a-z]+$" type="text" id="name" [(ngModel)]="patient.name" name="name" #namecontrol="ngModel" placeholder="John Smith">
             <span class="error-message" *ngIf="namecontrol.invalid && namecontrol.touched"> 
                 <small *ngIf="namecontrol.errors?.['required']"> Required </small>
                 <small *ngIf="namecontrol.errors?.['pattern']"> Invalid name </small>
@@ -23,7 +23,7 @@
 
         <div class="pure-control-group">
             <label for="weight"> Weight (kg) </label>
-            <input required  type="number" min="0" max="250" id="weight" [(ngModel)]="weight" name="weight" #weightcontrol="ngModel" placeholder="70">
+            <input required  type="number" min="0" max="250" id="weight" [(ngModel)]="patient.weight" name="weight" #weightcontrol="ngModel" placeholder="70">
             <span class="error-message" *ngIf="weightcontrol.invalid && weightcontrol.touched"> 
                 <small *ngIf="weightcontrol.errors?.['required']"> Required </small>
                 <small *ngIf="weightcontrol.errors?.['min']"> Weight cannot be below 0 </small>
@@ -33,7 +33,7 @@
 
         <div class="pure-control-group">
             <label for="height"> Height (cm) </label>
-            <input required type="number" min="0" max="200" id="height" [(ngModel)]="height" name="height" #heightcontrol="ngModel" placeholder="170">
+            <input required type="number" min="0" max="200" id="height" [(ngModel)]="patient.height" name="height" #heightcontrol="ngModel" placeholder="170">
             <span class="error-message" *ngIf="heightcontrol.invalid && heightcontrol.touched"> 
                 <small *ngIf="heightcontrol.errors?.['required']"> Required </small>
                 <small *ngIf="heightcontrol.errors?.['min']"> Height cannot be below 0 cm </small>
@@ -44,7 +44,7 @@
 
         <div class="pure-control-group">
             <label for="bloodpressure"> Blood Pressure </label>
-            <input required type="text" pattern="^\d{2,3}/\d{2,3}$" id="bloodpressure" [(ngModel)]="bloodpressure" name="bloodpressure" #bloodpressurecontrol="ngModel" placeholder="120/80">
+            <input required type="text" pattern="^\d{2,3}/\d{2,3}$" id="bloodpressure" [(ngModel)]="patient.bloodpressure" name="bloodpressure" #bloodpressurecontrol="ngModel" placeholder="120/80">
             <span class="error-message" *ngIf="bloodpressurecontrol.invalid && heightcontrol.touched"> 
                 <small *ngIf="bloodpressurecontrol.errors?.['required']"> Required </small>
                 <small *ngIf="bloodpressurecontrol.errors?.['pattern']"> Badly formatted blood pressure </small>
@@ -53,7 +53,7 @@
 
         <div class="pure-control-group">
             <label for="oxygenlevel"> Oxygen Level </label>
-            <input required type="number" min="50" max="100" id="oxygenlevel" [(ngModel)]="oxygenlevel" name="oxygenlevel" #oxygencontrol="ngModel" placeholder="99">
+            <input required type="number" min="50" max="100" id="oxygenlevel" [(ngModel)]="patient.oxygenlevel" name="oxygenlevel" #oxygencontrol="ngModel" placeholder="99">
             <span class="error-message" *ngIf="oxygencontrol.invalid && oxygencontrol.touched"> 
                 <small *ngIf="oxygencontrol.errors?.['required']"> Required </small>
                 <small *ngIf="oxygencontrol.errors?.['min']"> Oxygen cannot be below 50% </small>
@@ -63,7 +63,7 @@
 
         <div class="pure-control-group">
             <label for="temp"> Temperature </label>
-            <input required type="number" min="36" max="42" id="temp" [(ngModel)]="temp" name="temp" #tempcontrol="ngModel" placeholder="37">
+            <input required type="number" min="36" max="42" id="temp" [(ngModel)]="patient.temp" name="temp" #tempcontrol="ngModel" placeholder="37">
             <span class="error-message" *ngIf="tempcontrol.invalid && tempcontrol.touched"> 
                 <small *ngIf="tempcontrol.errors?.['required']"> Required </small>
                 <small *ngIf="tempcontrol.errors?.['min']"> Temp cannot be below 36 </small>

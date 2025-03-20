@@ -1,5 +1,5 @@
 export class Patient{
-    phone: string;
+    id: string;
     name: string; 
     height: number;
     weight: number;
@@ -7,9 +7,9 @@ export class Patient{
     temp: number; 
     oxygenlevel: number;
 
-    constructor( phone: string, name: string, height: number,weight: number, bloodpressure: string, temp: number, oxygenlevel: number)
+    constructor( id: string, name: string, height: number,weight: number, bloodpressure: string, temp: number, oxygenlevel: number)
     {
-        this.phone = phone; 
+        this.id = id; 
         this.name = name;
         this.height = height; 
         this.weight = weight; 

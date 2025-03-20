@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Patient } from './data/patient';
+import { PersistenceService } from './services/persistence.service';
 
 @Component({
   selector: 'app-root',
@@ -10,49 +11,19 @@ import { Patient } from './data/patient';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
-  id: string;
-  name: string; 
-  height: string;
-  weight: string;
-  bloodpressure: string; 
-  temp: string; 
-  oxygenlevel: string;
-  listOfPatients: Patient[];
+export class AppComponent{
+  patient: Patient;
 
-  constructor(){
-    this.id = ""; 
-    this.name = "";
-    this.height = ""; 
-    this.weight = ""; 
-    this.bloodpressure = "";
-    this.temp = ""; 
-    this.oxygenlevel = ""; 
-    this.listOfPatients = [];
+  constructor(public persistence: PersistenceService){
+    this.patient = new Patient("","",0,0,"",0,0);
   }
-
   registerVitals(){
-    let myPatient = new Patient(this.id, this.name, +this.height, +this.weight, this.bloodpressure, +this.temp, +this.oxygenlevel);
-    this.listOfPatients.push(myPatient);
+    this.persistence.add(this.patient);
   }
-  deletePatient(phone: string){
-
-    this.listOfPatients.splice(this.listOfPatients.findIndex((patient) => { return patient.phone == phone}), 1);
-    
-    /*
-    let indexToDelete = -1; 
-    for(let i = 0 ; i < this.listOfPatients.length; i++)
-    {
-      if(this.listOfPatients[i].phone == phone)
-      {
-        indexToDelete = i;
-      }
-    }
-    if(indexToDelete != -1)
-    {
-      this.listOfPatients.splice(indexToDelete,1);
-    }
-      */
+  deletePatient(id:string){
+    this.persistence.remove(id);
   }
-    
+  get listOfPatients(){
+    return this.persistence.getLocalList();
+  }
 }
