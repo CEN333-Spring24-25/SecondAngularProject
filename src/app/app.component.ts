@@ -16,14 +16,28 @@ export class AppComponent{
 
   constructor(public persistence: PersistenceService){
     this.patient = new Patient("","",0,0,"",0,0);
+   
   }
-  registerVitals(){
-    this.persistence.add(this.patient);
+  registerVitals(type:string){
+    let patient: Patient = new Patient(
+                      this.patient.id,
+                      this.patient.name,
+                      this.patient.height,
+                      this.patient.weight,
+                      this.patient.bloodpressure,
+                      this.patient.temp,
+                      this.patient.oxygenlevel
+    );
+    this.persistence.add(patient, type);
+
   }
   deletePatient(id:string){
-    this.persistence.remove(id);
+    this.persistence.remove(id,'local');
   }
-  get listOfPatients(){
+  get localListOfPatients(){
     return this.persistence.getLocalList();
+  }
+  get remoteListOfPatients(){
+    return this.persistence.getRemoteList();
   }
 }

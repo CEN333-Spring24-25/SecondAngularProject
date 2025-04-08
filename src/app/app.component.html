@@ -72,10 +72,13 @@
             
         </div>
         <div class="pure-controls">
-            <button type="submit" class="pure-button button-ghazal" (click)="registerVitals()"> Register Vitals</button>  
+            <button type="submit" class="pure-button button-ghazal" (click)="registerVitals('local')"> Register Vitals Locally</button>  
+        </div>
+        <div class="pure-controls">
+            <button type="submit" class="pure-button button-ghazal" (click)="registerVitals('remote')"> Register Vital Remotely</button>  
         </div>
     </fieldset> 
-    
+    <h1>Locally Stored Patients</h1>
     <table class="pure-table pure-table-bordered">
         <thead>
             <tr>
@@ -89,7 +92,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let patient of listOfPatients">
+            <tr *ngFor="let patient of localListOfPatients">
                 <td>{{patient.name}}</td>
                 <td>{{patient.height}}</td>
                 <td>{{patient.weight}}</td>
@@ -104,5 +107,35 @@
             </tr>
         </tbody>
     </table>
+    <h1>Remotely Stored Patients</h1>
+    <table class="pure-table pure-table-bordered">
+        <thead>
+            <tr>
+                <th>Patient</th>
+                <th>Height</th>
+                <th>Weight</th>
+                <th>Blood Pressure</th>
+                <th>Temperature</th>
+                <th>Oxygen</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let patient of remoteListOfPatients">
+                <td>{{patient.name}}</td>
+                <td>{{patient.height}}</td>
+                <td>{{patient.weight}}</td>
+                <td>{{patient.bloodpressure}}</td>
+                <td>{{patient.temp}}</td>
+                <td>{{patient.oxygenlevel}}</td>
+                <td>
+                    <button class="pure-button button-error" (click)="deletePatient(patient.phone)">
+                        X
+                    </button>
+                    </td>
+            </tr>
+        </tbody>
+    </table>
+    
 </form>
 
