@@ -31,8 +31,8 @@ export class AppComponent{
     this.persistence.add(patient, type);
 
   }
-  deletePatient(id:string){
-    this.persistence.remove(id,'local');
+  deletePatient(id:string, type: string){
+    this.persistence.remove(id,type);
   }
   get localListOfPatients(){
     return this.persistence.getLocalList();

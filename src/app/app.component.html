@@ -100,7 +100,7 @@
                 <td>{{patient.temp}}</td>
                 <td>{{patient.oxygenlevel}}</td>
                 <td>
-                    <button class="pure-button button-error" (click)="deletePatient(patient.phone)">
+                    <button class="pure-button button-error" (click)="deletePatient(patient.phone,'local')">
                         X
                     </button>
                     </td>
@@ -129,7 +129,7 @@
                 <td>{{patient.temp}}</td>
                 <td>{{patient.oxygenlevel}}</td>
                 <td>
-                    <button class="pure-button button-error" (click)="deletePatient(patient.phone)">
+                    <button class="pure-button button-error" (click)="deletePatient(patient.phone,'remote')">
                         X
                     </button>
                     </td>
