@@ -72,10 +72,10 @@
             
         </div>
         <div class="pure-controls">
-            <button type="submit" class="pure-button button-ghazal" (click)="registerVitals('local')"> Register Vitals Locally</button>  
+            <button type="submit" class="pure-button button-ghazal" (click)="registerVitals(userForm, 'local')" [disabled]="userForm.invalid"> Register Vitals Locally</button>  
         </div>
         <div class="pure-controls">
-            <button type="submit" class="pure-button button-ghazal" (click)="registerVitals('remote')"> Register Vital Remotely</button>  
+            <button type="submit" class="pure-button button-ghazal" (click)="registerVitals(userForm, 'remote')" [disabled]="userForm.invalid"> Register Vital Remotely</button>  
         </div>
     </fieldset> 
     <h1>Locally Stored Patients</h1>

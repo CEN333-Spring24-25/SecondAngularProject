@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Patient } from './data/patient';
 import { PersistenceService } from './services/persistence.service';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -16,9 +17,11 @@ export class AppComponent{
 
   constructor(public persistence: PersistenceService){
     this.patient = new Patient("","",0,0,"",0,0);
-   
   }
-  registerVitals(type:string){
+  resetState(){
+    this.patient = new Patient("","",0,0,"",0,0);
+  }
+  registerVitals(form: any, type:string){
     let patient: Patient = new Patient(
                       this.patient.id,
                       this.patient.name,
@@ -29,7 +32,8 @@ export class AppComponent{
                       this.patient.oxygenlevel
     );
     this.persistence.add(patient, type);
-
+    this.resetState();
+    form.resetForm();  
   }
   deletePatient(id:string, type: string){
     this.persistence.remove(id,type);
